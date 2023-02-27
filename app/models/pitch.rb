@@ -1,3 +1,3 @@
 class Pitch < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
 end
