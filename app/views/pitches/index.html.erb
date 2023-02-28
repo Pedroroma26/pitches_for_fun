@@ -10,7 +10,9 @@
               <h3 class="card-text"><%= pitch.name %></h3>
               <h5 class="card-text"><%= pitch.location %></h5>
               <p class="card-text"><small class="text-muted"><%= pitch.pitch_type %></small></p>
-              <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
+              <div class="price">
+                <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
+              </div>
             </div>
           </div>
         <% end %>
