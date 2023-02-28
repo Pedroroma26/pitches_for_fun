@@ -14,7 +14,9 @@
                 <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
               </div>
               <div class="rating">
-                <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
+                <% pitch.reviews.each do |review| %>
+                  <p class="card-text"><%= review.rating %><i class="fa-regular fa-star"></i></p>
+                <% end %>
               </div>
             </div>
           </div>
