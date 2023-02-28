@@ -34,8 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_112854) do
     t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_pitches_on_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_pitches_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -63,5 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_112854) do
 
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
+  add_foreign_key "pitches", "users"
   add_foreign_key "reviews", "pitches"
 end
