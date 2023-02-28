@@ -1,0 +1,12 @@
+<div class="container w-25 mt-5">
+
+  <%= simple_form_for pitch do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :price %>
+      <%= f.input :location %>
+      <%= f.input :pitch_type, collection: %w[Basketball Padel Tenis Football Futsal Field-Hockey Hockey Volleyball Handball] %>
+      <%= f.input :available %>
+    <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
+  <% end %>
+</div>
