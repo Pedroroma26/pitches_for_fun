@@ -17,6 +17,7 @@ class PitchesController < ApplicationController
 
   def create
     @pitch = Pitch.new(pitch_params)
+    @pitch.user = current_user
 
     if @pitch.save
       redirect_to pitch_path, notice: 'Pitch created'
@@ -35,13 +36,13 @@ class PitchesController < ApplicationController
 
   def destroy
     @pitch.destroy
-    redirect_to pitch_path(@pitch.list), status: :see_other
+    redirect_to pitches_path, status: :see_other
   end
 
   private
 
   def pitch_params
-    params.require(:pitch).permit(:name, :location, :price, :type)
+    params.require(:pitch).permit(:name, :location, :price, :pitch_type)
   end
 
   def set_pitch
