@@ -11,9 +11,9 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     @booking.user = current_user
     if @review.save
-      redirect_to booking_path(@booking) # where do we whant to go after review saved?
+      redirect_to bookings_path
     else
-      render "review/show", status: :unprocessable_entity
+      render "review/new", status: :unprocessable_entity
     end
   end
 
@@ -22,13 +22,11 @@ class ReviewsController < ApplicationController
   end
 
   def update
-   # @review = Review.find(params[:id])
     @review.update(review_params)
     redirect_to reviews_path
   end
 
   def destroy
-   # @review = Review.find(params[:id])
     @review.destroy
     redirect_to reviews_path, status: :see_other
   end

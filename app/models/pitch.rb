@@ -1,6 +1,6 @@
 class Pitch < ApplicationRecord
   belongs_to :user
-  has_many :review, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :price, presence: true
