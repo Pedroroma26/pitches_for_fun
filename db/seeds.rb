@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Review.destroy_all
+puts "reviews destroyed"
+
 Booking.destroy_all
 puts "bookings destroyed"
 
@@ -19,6 +23,8 @@ user1 = User.create!(email: "user1@lewagon.com", password: 123456, first_name: "
 user2 = User.create!(email: "user2@lewagon.com", password: 123456, first_name: "Rui", last_name: "Morim")
 user3 = User.create!(email: "user3@lewagon.com", password: 123456, first_name: "Bernardo", last_name: "Mendes")
 
+puts "Users created"
+
 # pitch seeds
 pitch1 = Pitch.create!(name: "Catedral", price: 9999999, location: "Lisboa", pitch_type: "Football", available: false, user: user1)
 pitch2 = Pitch.create!(name: "Estádio Minucipal de Lousada", price: 100, location: "Lousada", pitch_type: "Field-Hockey", available: true, user: user1)
@@ -30,6 +36,8 @@ pitch7 = Pitch.create!(name: "Bangkok Arena", price: 650, location: "Bangkok", p
 pitch8 = Pitch.create!(name: "Saitama Super Arena", price: 300, location: "Japan", pitch_type: "Volleyball", available: true, user: user1)
 pitch9 = Pitch.create!(name: "MVM Dome", price: 975, location: "Budapest", pitch_type: "Handball", available: false, user: user1)
 
+puts "Pitches created"
+
 # booking and reviews seeds
 Pitch.all.each do |pitch|
   start_time = DateTime.now + (rand * 21)
@@ -39,3 +47,5 @@ Pitch.all.each do |pitch|
   Review.create!(rating: rand(0..5), comment: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 5), booking: booking)
   puts "review created"
 end
+
+puts "Booking and Reviews created"
