@@ -12,7 +12,7 @@ Pitch.destroy_all
 puts "pitches destroyed"
 
 User.destroy_all
-puts "pitches destroyed"
+puts "users destroyed"
 
 # user seeds
 user1 = User.create!(email: "user1@lewagon.com", password: 123456, first_name: "Pedro", last_name: "Romariz")

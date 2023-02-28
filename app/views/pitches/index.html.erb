@@ -1,5 +1,26 @@
 <div class="container">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <div class="row d-flex">
 
-    </div>
+    <% @pitches.each do |pitch| %>
+      <div class="col-md-3 mb-3 mt-3 index-card-wrap">
+        <%= link_to pitch_path(pitch) do %>
+          <div class="card rounded-4 " style="width: 18rem; height: 25rem">
+            <img src="https://images.unsplash.com/photo-1676444920926-c8a084ec4003?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="card-img-top rounded-top-4" alt="...">
+            <div class="card-body">
+              <h3 class="card-text"><%= pitch.name %></h3>
+              <h5 class="card-text"><%= pitch.location %></h5>
+              <p class="card-text"><small class="text-muted"><%= pitch.pitch_type %></small></p>
+              <div class="price">
+                <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
+              </div>
+              <div class="rating">
+                <p class="card-text><strong><%= pitch.price %>€</strong> / hour</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
 </div>
