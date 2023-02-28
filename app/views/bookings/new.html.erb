@@ -1,0 +1,10 @@
+<div class="container w-25 mt-5">
+
+  <% @bookink.pitch.name %>
+
+  <%= simple_form_for @list do |f| %>
+      <%= f.input :start_time, class: "back" %>
+      <%= f.input :end_time, class: "back" %>
+    <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
+  <% end %>
+  <%= @booking.total_price %>
