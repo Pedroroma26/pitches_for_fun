@@ -46,6 +46,6 @@ class PitchesController < ApplicationController
   end
 
   def set_pitch
-    @pitch = Pitch.find(params[:pitch_id])
+    @pitch = Pitch.find(params[:id])
   end
 end
