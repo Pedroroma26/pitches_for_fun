@@ -1,0 +1,8 @@
+<% @bookings.each do |booking| %>
+  <%= booking.start_time %>
+  <%= booking.end_time %>
+  <%= booking.total_price %>
+  <%= booking.pitch.name %>
+  <%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-danger btn-sm", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-info btn-sm"%>
+<% end %>
