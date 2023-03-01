@@ -1,4 +1,4 @@
-<%#
+
 <div class="container">
   <h1><strong><%= @pitch.name %></strong></h1>
   <p class="title-text"><b><%= @pitch.average_rating %></b>
@@ -6,9 +6,9 @@
   <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline" > <%= @pitch.location%> </span>
   </b></p>
 
-  <div class="d-flex justify-content-around" >
+  <div class="d-flex justify-content-around align-itens-center" >
     <div style= "width: 700px;">
-      <%= cl_image_tag @pitch.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @pitch.photo.key, height: 600, width: 700, crop: :fill, class: "rounded-4" %>
     </div>
     <div class="">
       <p><b><%= @pitch.pitch_type %></b></p>
@@ -16,7 +16,10 @@
     </div>
   </div>
 
-
-
+  <% @pitch.bookings.each do |booking|%>
+    <%booking.reviews.each do |review| %>
+      <p><%= review.comment %><%= review.rating %></p>
+    <% end %>
+  <% end %>
 
 </div>

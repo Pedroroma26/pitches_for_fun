@@ -3,8 +3,10 @@
   <% @pitch.name %>
 
   <%= simple_form_for [pitch, booking] do |f| %>
-      <%= f.input :start_time, class: "back" %>
-      <%= f.input :end_time, class: "back" %>
+      <%= f.input :start_time, {discard_minute: true}%>
+
+
+      <%= f.input :end_time, {discard_minute: true} %>
     <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
   <% end %>
   <%= @booking.total_price %>
