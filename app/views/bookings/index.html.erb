@@ -1,11 +1,12 @@
 <div class="container col-9 justify-centered">
   <table class="table">
     <thead>
-      <tr>
+      <tr class="table_headers">
         <th scope="col">Pitch Name</th>
         <th scope="col">Start time</th>
         <th scope="col">End time</th>
         <th scope="col">Total Price</th>
+        <th scope="col"> </th>
         <th scope="col"> </th>
         <th scope="col"> </th>
       </tr>
@@ -19,8 +20,9 @@
         <td><%= booking.start_time %></td>
         <td><%= booking.end_time %></td>
         <td><%= booking.total_price %></td>
-        <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-info btn-sm"%></td>
-        <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-danger btn-sm",
+        <td><%= link_to "leave a review", new_booking_review_path(booking), class:"text-decoration-none btn btn-outline-success btn-sm"%></td>
+        <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-outline-info btn-sm"%></td>
+        <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-outline-danger btn-sm",
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td>
       </tr>
 
