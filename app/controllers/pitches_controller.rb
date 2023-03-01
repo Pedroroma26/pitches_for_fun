@@ -20,7 +20,7 @@ class PitchesController < ApplicationController
     @pitch.user = current_user
 
     if @pitch.save
-      redirect_to pitch_path, notice: 'Pitch created'
+      redirect_to pitches_path, notice: 'Pitch created'
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class PitchesController < ApplicationController
   private
 
   def pitch_params
-    params.require(:pitch).permit(:name, :location, :price, :pitch_type, :photo)
+    params.require(:pitch).permit(:name,:price, :location, :pitch_type, :available, :photo)
   end
 
   def set_pitch
