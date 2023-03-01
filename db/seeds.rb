@@ -35,7 +35,7 @@ puts "hi"
 pitch1.save
 puts "pitch 1 created"
 
-pitch2 = Pitch.new(name: "Estádio Minucipal de Lousada", price: 100, location: "Lousada", pitch_type: "Field-Hockey", available: true, user: user2)
+pitch2 = Pitch.new(name: "Estádio Municipal de Lousada", price: 100, location: "Lousada", pitch_type: "Field-Hockey", available: true, user: user2)
 
 #image for pitch 2
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667080/Pitches%20for%20fun/campo-desportivo-lousada_q4xmag.webp")
