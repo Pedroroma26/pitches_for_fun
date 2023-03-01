@@ -1,8 +1,30 @@
-<% @bookings.each do |booking| %>
-  <%= booking.start_time %>
-  <%= booking.end_time %>
-  <%= booking.total_price %>
-  <%= booking.pitch.name %>
-  <%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-danger btn-sm", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  <%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-info btn-sm"%>
-<% end %>
+<div class="container col-9 justify-centered">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pitch Name</th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+        <th scope="col">Total Price</th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @bookings.each do |booking| %>
+
+      <tr>
+        <td><%= booking.pitch.name %></td>
+        <td><%= booking.start_time %></td>
+        <td><%= booking.end_time %></td>
+        <td><%= booking.total_price %></td>
+        <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-info btn-sm"%></td>
+        <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-danger btn-sm",
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td>
+      </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
