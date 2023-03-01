@@ -5,10 +5,6 @@
   <%= f.input :comment %>
   <%= f.submit "Submit Review", class: "btn btn-primary" %>
 <% end %>
-</div>
 
-<p></p>
-
-<div>
-  <%= link_to "Go back to your booking", booking_path(@booking), class: "btn btn-primary" %>
+  <%= link_to "Go back to your bookings", bookings_path(@booking), class: "btn btn-primary" %>
 </div>
