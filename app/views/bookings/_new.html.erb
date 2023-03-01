@@ -1,12 +1,9 @@
-
-
   <% @pitch.name %>
 
   <%= simple_form_for [pitch, booking] do |f| %>
-      <%= f.input :start_time, {discard_minute: true}%>
+  <%= f.input :start_time, as: :date, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_time, as: :date, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
+<% end %>
 
-
-      <%= f.input :end_time, {discard_minute: true} %>
-    <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
-  <% end %>
   <%= @booking.total_price %>

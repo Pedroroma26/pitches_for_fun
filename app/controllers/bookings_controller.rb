@@ -51,6 +51,6 @@ class BookingsController < ApplicationController
   end
 
   def duration
-    @booking.end_time - @booking.start_time
+    (@booking.end_time - @booking.start_time) / 3600
   end
 end
