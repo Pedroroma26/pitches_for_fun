@@ -28,10 +28,10 @@ puts "Users created"
 
 # pitch seeds
 pitch1 = Pitch.new(name: "Catedral", price: 9999999, location: "Lisboa", pitch_type: "Football", available: false, user: user1)
-
 #image for pitch 1
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667082/Pitches%20for%20fun/est%C3%A1dio_da_luz_exymbx.jpg")
-pitch1.photo.attach(io: file, filename: "estadio_luz.jpg", content_type: "image/jpg")
+pitch1.photo.attach(io: file, filename: "estadio-luz.jpg", content_type: "image/jpg")
+puts "hi"
 pitch1.save
 puts "pitch 1 created"
 
