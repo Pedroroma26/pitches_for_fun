@@ -6,7 +6,7 @@
   <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline" > <%= @pitch.location%> </span>
   </b></p>
 
-  <div class="d-flex justify-content-around align-itens-center" >
+  <div class="d-flex justify-content-between align-itens-center" >
     <div style= "width: 700px;">
       <%= cl_image_tag @pitch.photo.key, height: 600, width: 700, crop: :fill, class: "rounded-4" %>
     </div>
@@ -15,11 +15,17 @@
       <%= render "bookings/new", pitch: @pitch, booking: @booking %>
     </div>
   </div>
-
-  <% @pitch.bookings.each do |booking|%>
-    <%booking.reviews.each do |review| %>
-      <p><%= review.comment %><%= review.rating %></p>
-    <% end %>
-  <% end %>
-
+    <div class="cards-container">
+        <% @pitch.bookings.each do |booking|%>
+          <%booking.reviews.each do |review| %>
+              <div class="card mt-3 rounded-4 box ">
+                <div class="card-body">
+                <p><%= review.comment %></p>
+                <p><b><%= review.rating %><i class="fa-regular fa-star"></i></b></p>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+    </div>
+  </div>
 </div>
