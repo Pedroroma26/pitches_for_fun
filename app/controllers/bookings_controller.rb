@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
     @booking.pitch = @pitch
     @booking.user = current_user
     if @booking.save
+      @booking.total_price = duration * @pitch.price
+      @booking.save
       redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
@@ -28,6 +30,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+    @booking.total_price = duration * @booking.pitch.price
     redirect_to bookings_path
   end
 
@@ -44,6 +47,10 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :total_price, :pitch_id)
+    params.require(:booking).permit(:start_time, :end_time, :pitch_id)
+  end
+
+  def duration
+    @booking.end_time - @booking.start_time
   end
 end

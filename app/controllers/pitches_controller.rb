@@ -43,7 +43,7 @@ class PitchesController < ApplicationController
   private
 
   def pitch_params
-    params.require(:pitch).permit(:name,:price, :location, :pitch_type, :available, :photo)
+    params.require(:pitch).permit(:name, :price, :location, :pitch_type, :available, :photo)
   end
 
   def set_pitch
