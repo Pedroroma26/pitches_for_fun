@@ -1,8 +1,8 @@
-<div class="container w-25 mt-5">
+
 
   <% @pitch.name %>
 
-  <%= simple_form_for [@pitch, @booking] do |f| %>
+  <%= simple_form_for [pitch, booking] do |f| %>
       <%= f.input :start_time, class: "back" %>
       <%= f.input :end_time, class: "back" %>
     <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
