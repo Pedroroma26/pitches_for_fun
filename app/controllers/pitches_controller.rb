@@ -7,7 +7,6 @@ class PitchesController < ApplicationController
 
   def show
     @booking = Booking.new
-    
   end
 
   def edit
