@@ -18,7 +18,7 @@
             <%= link_to "Add Pitch", new_pitch_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
+            <% if user_signed_in? && current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, width: 200, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="" class="rounded-top-4 avatar dropdown-toggle", id="navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true" ,aria-expanded="false">
