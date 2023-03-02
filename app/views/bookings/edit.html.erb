@@ -7,4 +7,4 @@
       <%= f.input :end_time, {discard_minute: true} %>
     <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
   <% end %>
-<p>New Total Price: <strong><%= @booking.total_price %>€</strong>
+<p>New Total Price: <strong><%= @booking.total_price.round(2) %>€</strong>

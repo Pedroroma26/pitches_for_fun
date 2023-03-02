@@ -29,9 +29,13 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    @booking.total_price = (duration * @booking.pitch.price)
-    redirect_to bookings_path
+    if @booking.update(booking_params)
+      @booking.total_price = (duration * @booking.pitch.price).round(2)
+      @booking.save
+      redirect_to bookings_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
