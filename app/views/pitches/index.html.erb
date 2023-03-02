@@ -2,7 +2,7 @@
   <div class="row d-flex">
 
     <% @pitches.each do |pitch| %>
-      <div class="col-md-3 mb-3 mt-3 index-card-wrap">
+      <div class="col-md-3 index-card-wrap">
         <%= link_to pitch_path(pitch) do %>
           <div class="card rounded-4 " style="width: 18rem; height: 30rem">
             <%= cl_image_tag pitch.photo.key, height: 250, width: 287, crop: :fill, class:"rounded-top-4" %>
