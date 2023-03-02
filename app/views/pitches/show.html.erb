@@ -35,6 +35,9 @@
               <tr>
                 <td><%= review.rating %> <i class="fa-regular fa-star"></i></td>
                 <td><%= review.comment %> </td>
+                <td><% if current_user == review.booking.user %>
+                    <%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %>
+                    <% end %></td>
               </tr>
               <% end %>
             <% end %>
@@ -50,4 +53,3 @@
     </div>
   </div>
 </div>
-<%# comment to push %>
