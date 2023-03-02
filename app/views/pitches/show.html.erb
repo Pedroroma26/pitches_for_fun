@@ -1,39 +1,53 @@
-
 <div class="container">
-  <h1><strong><%= @pitch.name %></strong></h1>
-  <p class="title-text"><b><%= @pitch.average_rating %></b>
-  <i class="fa-regular fa-star"></i>
-  <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline" > <%= @pitch.location%> </span>
-  </b></p>
+  <div class="pitch-info">
+    <span class="pitch-name"><%= @pitch.name %></span>
+    <div>
+      <%= @pitch.average_rating %> <i class="fa-regular fa-star"></i>
+      <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline"><%= @pitch.location%></span></b>
+    </div>
+  </div>
 
-  <div class="d-flex justify-content-between align-itens-center" >
-    <div style= "width: 700px;">
-      <%= cl_image_tag @pitch.photo.key, height: 600, width: 700, crop: :fill, class: "rounded-4" %>
-    </div>
-    <div class="">
-      <p><b><%= @pitch.pitch_type %></b></p>
-      <%= render "bookings/new", pitch: @pitch, booking: @booking %>
-    </div>
-  </div>
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-    <div class="cards-container">
-        <% @pitch.bookings.each do |booking|%>
-          <%booking.reviews.each do |review| %>
-              <div class="card mt-3 rounded-4 box ">
-                <div class="card-body">
-                <p><%= review.comment %></p>
-                <p><b><%= review.rating %><i class="fa-regular fa-star"></i></b></p>
-                <% if current_user == review.booking.user %>
-                  <%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %>
-                <% end %>
-                </div>
-              </div>
-          <% end %>
-        <% end %>
+  <div class="main">
+    <div class="section">
+      <div class="sub-section pitch-pic">
+
+        <%= cl_image_tag @pitch.photo.key, height: 500, width: 866, crop: :fill, class: "rounded-4" %>
+      </div>
+      <div class="sub-section">Booking
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <table class="table col-6">
+          <thead>
+            <tr class="table_headers" id ="test1">
+              <th scope="Ratings" id="rating">Ratings</th>
+              <th scope="Reviews col-5">Reviews</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @pitch.bookings.each do |booking|%>
+              <%booking.reviews.each do |review| %>
+              <tr>
+                <td><%= review.rating %> <i class="fa-regular fa-star"></i></td>
+                <td><%= review.comment %> </td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-section">
+        <p><b><%= @pitch.pitch_type %></b></p>
+        <%= render "bookings/new", pitch: @pitch, booking: @booking %>
+      </div>
+
     </div>
   </div>
 </div>
+<%# comment to push %>

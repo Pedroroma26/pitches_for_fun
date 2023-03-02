@@ -1,0 +1,26 @@
+.main {
+  flex-grow: 1;
+  height: 100vh;
+}
+
+.section{
+  flex-grow: 1;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 4rem;
+}
+
+.sub-section{
+  height: 100%;
+}
+
+.pitch-name{
+  font-family: "Bungee";
+  font-size: 2rem;
+}
+
+#rating{
+  width:150px;
+}
