@@ -16,16 +16,16 @@
     </div>
   </div>
     <div class="cards-container">
-        <% @pitch.bookings.each do |booking|%>
-          <%booking.reviews.each do |review| %>
-              <div class="card mt-3 rounded-4 box ">
-                <div class="card-body">
-                <p><%= review.comment %></p>
-                <p><b><%= review.rating %><i class="fa-regular fa-star"></i></b></p>
-                </div>
-              </div>
-              <% end %>
-            <% end %>
+      <% @pitch.bookings.each do |booking|%>
+        <%booking.reviews.each do |review| %>
+          <div class="card mt-3 rounded-4 box ">
+            <div class="card-body">
+            <p><%= review.comment %></p>
+            <p><b><%= review.rating %><i class="fa-regular fa-star"></i></b></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
