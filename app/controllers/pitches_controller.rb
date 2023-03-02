@@ -2,7 +2,11 @@ class PitchesController < ApplicationController
   before_action :set_pitch, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pitches = Pitch.all
+    if params[:query].present?
+      @pitches= Pitch.search_by_name_and_type(params[:query])
+    else
+      @pitches = Pitch.all
+    end
   end
 
   def show
@@ -10,7 +14,6 @@ class PitchesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def new

@@ -10,6 +10,13 @@ class Pitch < ApplicationRecord
   validates :location, presence: true
   validates :pitch_type, presence: true, inclusion: { in: %w[Basketball Padel Tenis Football Futsal Field-Hockey Hockey Volleyball Handball] }
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_type,
+    against: [ :name, :pitch_type ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def average_rating
     reviews = get_reviews
     (reviews.pluck(:rating).sum / reviews.length.to_f).round(1)
