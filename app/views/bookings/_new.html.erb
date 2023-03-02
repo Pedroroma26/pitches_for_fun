@@ -1,9 +1,15 @@
-  <% @pitch.name %>
+<% @pitch.name %>
 
+<% if current_user != pitch.user %>
   <%= simple_form_for [pitch, booking], data: { controller: 'flatpickr' } do |f| %>
-  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-  <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
+    <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <p><%= f.submit class: "btn btn-outline-secondary btn-sm " %></p>
+  <% end %>
 <% end %>
 
-  <%= @booking.total_price %>
+  <p><strong><%= @pitch.price %>€</strong> / day</p>
+
+<% if current_user == @pitch.user %>
+  <%= button_to "Delete Pitch", pitch_path(@pitch), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<% end %>

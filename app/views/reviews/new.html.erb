@@ -1,4 +1,4 @@
-<div class="container w-25 mt-5">
+<div class="container w-25 mt-5" style="height: calc(100vh - 312px)">
 <h1>Review the Pitch</h1>
 <%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :rating, collection: (0..5)  %>

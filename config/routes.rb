@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:edit, :update, :destroy]
+
+  get "/profile", to: "users#show"
+  # get "/profile", to: "users#edit"
+  # get "/profile", to: "users#update"
+  resources :users, only: [:edit, :update]
 end

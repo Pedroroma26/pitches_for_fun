@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    @booking.total_price = duration * @booking.pitch.price
+    @booking.total_price = (duration * @booking.pitch.price)
     redirect_to bookings_path
   end
 

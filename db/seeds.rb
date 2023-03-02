@@ -27,15 +27,14 @@ user3 = User.create!(email: "user3@lewagon.com", password: 123456, first_name: "
 puts "Users created"
 
 # pitch seeds
-pitch1 = Pitch.new(name: "Catedral", price: 9999999, location: "Lisboa", pitch_type: "Football", available: false, user: user1)
+pitch1 = Pitch.new(name: "Catedral", price: 9999999, location: "Av. Eusébio da Silva Ferreira, 1500-313 Lisboa", pitch_type: "Football", available: false, user: user1)
 #image for pitch 1
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667082/Pitches%20for%20fun/est%C3%A1dio_da_luz_exymbx.jpg")
 pitch1.photo.attach(io: file, filename: "estadio-luz.jpg", content_type: "image/jpg")
-puts "hi"
 pitch1.save
 puts "pitch 1 created"
 
-pitch2 = Pitch.new(name: "Estádio Municipal de Lousada", price: 100, location: "Lousada", pitch_type: "Field-Hockey", available: true, user: user2)
+pitch2 = Pitch.new(name: "Estádio Municipal de Lousada", price: 100, location: "Avenida Dr. Duarte Leite, nº. 545", pitch_type: "Field-Hockey", available: true, user: user2)
 
 #image for pitch 2
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667080/Pitches%20for%20fun/campo-desportivo-lousada_q4xmag.webp")
@@ -43,7 +42,7 @@ pitch2.photo.attach(io: file, filename: "estadio_lousada.jpg", content_type: "im
 pitch2.save
 puts "pitch 2 created"
 
-pitch3 = Pitch.new(name: "KFC Yum! Center", price: 5000, location: "Louisville", pitch_type: "Basketball", available: false, user: user3)
+pitch3 = Pitch.new(name: "KFC Yum! Center", price: 5000, location: "1 Arena Plaza, Louisville, KY 40202, United States", pitch_type: "Basketball", available: false, user: user3)
 
 #image for pitch 3
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667082/Pitches%20for%20fun/kfc-yum-center_xwdcvw.jpg")
@@ -51,7 +50,7 @@ pitch3.photo.attach(io: file, filename: "KFC_Yum!_Center.jpg", content_type: "im
 pitch3.save
 puts "pitch 3 created"
 
-pitch4 = Pitch.new(name: "Top-padel Fluvial", price: 70, location: "Porto", pitch_type: "Padel", available: true, user: user1)
+pitch4 = Pitch.new(name: "Top-padel Fluvial", price: 70, location: "Rua de Aleixo da Mota 306, 4150-044 Porto", pitch_type: "Padel", available: true, user: user1)
 
 #image for pitch 4
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667082/Pitches%20for%20fun/top-padel-fluvial_zkshir.jpg")
@@ -59,7 +58,7 @@ pitch4.photo.attach(io: file, filename: "Top_padel_Fluvial.jpg", content_type: "
 pitch4.save
 puts "pitch 4 created"
 
-pitch5 = Pitch.new(name: "Estádio da Póvoa Varzim", price: 150, location: "Póvoa do Varzim", pitch_type: "Hockey", available: false, user: user2)
+pitch5 = Pitch.new(name: "Estádio da Póvoa Varzim", price: 150, location: "4490-475 Povoa de Varzim", pitch_type: "Hockey", available: false, user: user2)
 
 #image for pitch 5
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667081/Pitches%20for%20fun/est%C3%A1dio-varzim_ocpgdh.webp")
@@ -67,7 +66,7 @@ pitch5.photo.attach(io: file, filename: "Estádio_da_Póvoa_Varzim.jpg", content
 pitch5.save
 puts "pitch 5 created"
 
-pitch6 = Pitch.new(name: "Arthur Ashe Stadium", price: 6950, location: "New York", pitch_type: "Tenis", available: true, user: user3)
+pitch6 = Pitch.new(name: "Arthur Ashe Stadium", price: 6950, location: "124-02 Roosevelt Ave, Flushing, NY 11368, United States", pitch_type: "Tenis", available: true, user: user3)
 
 #image for pitch 6
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667081/Pitches%20for%20fun/arthur-ashe-stadium-_efluqv.jpg")
@@ -75,7 +74,7 @@ pitch6.photo.attach(io: file, filename: "Arthur_Ashe_Stadium.jpg", content_type:
 pitch6.save
 puts "pitch 6 created"
 
-pitch7 = Pitch.new(name: "Bangkok Arena", price: 650, location: "Bangkok", pitch_type: "Futsal", available: false, user: user1)
+pitch7 = Pitch.new(name: "Bangkok Arena", price: 650, location: "RRMX+6M3, Khwaeng Khok Faet, Nong Chok, Bangkok 10530, Thailand", pitch_type: "Futsal", available: false, user: user1)
 
 #image for pitch 7
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667081/Pitches%20for%20fun/bangkok_futsal_arena_z6zmg9.jpg")
@@ -83,7 +82,7 @@ pitch7.photo.attach(io: file, filename: "Bangkok_Arena.jpg", content_type: "imag
 pitch7.save
 puts "pitch 7 created"
 
-pitch8 = Pitch.new(name: "Saitama Super Arena", price: 300, location: "Japan", pitch_type: "Volleyball", available: true, user: user2)
+pitch8 = Pitch.new(name: "Saitama Super Arena", price: 300, location: "8 Shintoshin, Chuo Ward, Saitama, 330-9111, Japan", pitch_type: "Volleyball", available: true, user: user2)
 
 #image for pitch 8
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667080/Pitches%20for%20fun/Saitama_Super_Arena_u5trjb.jpg")
@@ -91,7 +90,7 @@ pitch8.photo.attach(io: file, filename: "Saitama_Super_Arena.jpg", content_type:
 pitch8.save
 puts "pitch 8 created"
 
-pitch9 = Pitch.new(name: "MVM Dome", price: 975, location: "Budapest", pitch_type: "Handball", available: false, user: user3)
+pitch9 = Pitch.new(name: "MVM Dome", price: 975, location: "Budapest, Üllői út 131, 1098 Hungary", pitch_type: "Handball", available: false, user: user3)
 
 #image for pitch 9
 file = URI.open("https://res.cloudinary.com/dghvhwirp/image/upload/v1677667080/Pitches%20for%20fun/MVM-Dome_j2zglh.png")
