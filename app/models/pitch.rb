@@ -1,4 +1,7 @@
 class Pitch < ApplicationRecord
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   belongs_to :user
   has_one_attached :photo
 
@@ -9,6 +12,7 @@ class Pitch < ApplicationRecord
   validates :price, presence: true
   validates :location, presence: true
   validates :pitch_type, presence: true, inclusion: { in: %w[Basketball Padel Tenis Football Futsal Field-Hockey Hockey Volleyball Handball] }
+
 
   def average_rating
     reviews = get_reviews
