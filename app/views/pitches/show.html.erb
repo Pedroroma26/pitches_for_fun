@@ -22,6 +22,9 @@
                 <div class="card-body">
                 <p><%= review.comment %></p>
                 <p><b><%= review.rating %><i class="fa-regular fa-star"></i></b></p>
+                <% if current_user == review.booking.user %>
+                  <%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %>
+                  <% end %>
                 </div>
               </div>
               <% end %>

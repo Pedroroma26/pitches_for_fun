@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to reviews_path, status: :see_other
+    redirect_to pitch_path(@review.booking.pitch), status: :see_other
   end
 
   private
