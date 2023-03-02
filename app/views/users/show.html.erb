@@ -1,0 +1,29 @@
+<div class="container" style="height: calc(100vh - 280px)">
+  <div class="d-flex justify-content-around align-items-center">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class:"rounded-circle" %>
+      <% else %>
+        <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="" class="rounded-circle avatar-img" >
+      <% end %>
+      <%= link_to "edit", edit_user_registration_path, class:"text-decoration-none btn btn-outline-info btn-sm"%>
+    <div class="border rounded-4 card-name">
+      <p><pan><b>First Name</b></span></p>
+      <%= @user.first_name %>
+    </div>
+    <div class="border rounded-4 card-name">
+      <p><pan><b>Last Name</b></span></p>
+      <%= @user.last_name %>
+    </div>
+  </div>
+  <table class="table mt-3">
+    <tbody>
+      <% @user.pitches.each do |pitch| %>
+      <tr>
+        <td><%= pitch.name %></td>
+        <td><%= link_to "edit", edit_pitch_path(pitch), class:"text-decoration-none btn btn-outline-info btn-sm"%></td>
+        <td><%= link_to "Delete", pitch_path(pitch), data: { turbo_method: :delete }, class: "text-decoration-none btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,25 +1,33 @@
-<div class="container">
-  <div class="row d-flex">
+<div class="d-flex search-container">
+  <%= form_with url: pitches_path, method: :get, class: "d-flex search-bar" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control  border-radio",
+      placeholder: "Find a Pitch"
+    %>
+    <%= submit_tag "Search", class: "btn btn-outline-primary ms-3 border-radio" %>
+  <% end %>
+</div>
 
-    <% @pitches.each do |pitch| %>
-      <div class="col-md-3 index-card-wrap">
-        <%= link_to pitch_path(pitch) do %>
-          <div class="card rounded-4 " style="width: 18rem; height: 30rem">
-            <%= cl_image_tag pitch.photo.key, height: 250, width: 287, crop: :fill, class:"rounded-top-4" %>
-            <div class="card-body">
-              <h3 class="card-text"><%= pitch.name %></h3>
-              <h5 class="card-text"><%= pitch.location %></h5>
-              <p class="card-text"><small class="text-muted"><%= pitch.pitch_type %></small></p>
-              <div class="price">
-                <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
-              </div>
-              <div class="rating">
-                  <p class="card-text"><%= pitch.average_rating %><i class="fa-regular fa-star"></i></p>
-              </div>
+<div class="row d-flex mx-5">
+  <% @pitches.each do |pitch| %>
+    <div class="col-md-3 mb-3 mt-3 index-card-wrap">
+      <%= link_to pitch_path(pitch) do %>
+        <div class="card rounded-4 " style="width: 18rem; height: 30rem">
+          <%= cl_image_tag pitch.photo.key, height: 250, width: 287, crop: :fill, class:"rounded-top-4" %>
+          <div class="card-body">
+            <h3 class="card-text"><%= pitch.name %></h3>
+            <h5 class="card-text"><%= pitch.location %></h5>
+            <p class="card-text"><small class="text-muted"><%= pitch.pitch_type %></small></p>
+            <div class="price">
+              <p class="card-text"><strong><%= pitch.price %>€</strong> / hour</p>
+            </div>
+            <div class="rating">
+                <p class="card-text"><%= pitch.average_rating %><i class="fa-regular fa-star"></i></p>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

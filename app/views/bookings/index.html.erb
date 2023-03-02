@@ -1,5 +1,6 @@
 <div class="container col-10 justify-centered">
   <table class="table col-6">
+  
     <thead>
       <tr class="table_headers" id ="test1">
         <th scope="col-4">Pitch Name</th>
@@ -19,7 +20,7 @@
         <td><%= booking.pitch.name %></td>
         <td><%= booking.start_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= booking.end_time.strftime('%d-%m-%Y %H:%M') %></td>
-        <td><%= booking.total_price %> €</td>
+        <td><%= sprintf('%.2f', booking.total_price) %>€</td>
         <td><%= link_to "leave a review", new_booking_review_path(booking), class:"text-decoration-none btn btn-outline-success btn-sm"%></td>
         <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-outline-info btn-sm"%></td>
         <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-outline-danger btn-sm",
