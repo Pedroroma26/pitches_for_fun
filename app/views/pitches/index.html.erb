@@ -1,3 +1,14 @@
+<div class="d-flex search-container">
+  <%= form_with url: pitches_path, method: :get, class: "d-flex search-bar" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control  border-radio",
+      placeholder: "Find a Pitch"
+    %>
+    <%= submit_tag "Search", class: "btn btn-outline-primary ms-3 border-radio" %>
+  <% end %>
+</div>
+
 <div class="row d-flex mx-5">
   <% @pitches.each do |pitch| %>
     <div class="col-md-3 mb-3 mt-3 index-card-wrap">
