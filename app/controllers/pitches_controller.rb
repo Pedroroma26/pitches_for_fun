@@ -11,6 +11,10 @@ class PitchesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = {
+        lat: @pitch.latitude,
+        lng: @pitch.longitude
+      }
   end
 
   def edit
