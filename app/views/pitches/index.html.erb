@@ -16,14 +16,20 @@
         <div class="card rounded-4 shadow-lg" style="width: 18rem; height: 32rem">
           <%= cl_image_tag pitch.photo.key, height: 250, width: 287, crop: :fill, class:"rounded-top-4" %>
           <div class="card-body">
-            <h3 class="card-text"><%= pitch.name %></h3>
+            <h3 class="card-text"><%= pitch.name.capitalize %></h3>
             <p class="card-text address"><%= pitch.location %></p>
             <p class="badge rounded-pill text-bg-success"><%= pitch.pitch_type %></small></p>
             <div class="price">
               <p class="card-text"><strong><%= pitch.price %>€</strong> / day</p>
             </div>
             <div class="rating">
-                <p class="card-text"><%= pitch.average_rating %><i class="fa-regular fa-star"></i></p>
+                <p class="card-text">
+                  <% if pitch.average_rating.nan? %>
+                    <%= 'Not Rated' %>
+                  <% else %>
+                    <%= pitch.average_rating %>
+                  <% end %><i class="fa-regular fa-star"></i>
+                </p>
             </div>
           </div>
         </div>
