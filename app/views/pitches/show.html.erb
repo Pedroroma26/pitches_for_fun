@@ -10,9 +10,9 @@
   <div class="main">
     <div class="section">
       <div class="sub-section pitch-pic">
-
         <%= cl_image_tag @pitch.photo.key, height: 500, width: 866, crop: :fill, class: "rounded-4" %>
       </div>
+
       <div class="sub-section">Booking
         <div style="width: 100%; height: 600px;"
           data-controller="map"
@@ -32,13 +32,14 @@
           <tbody>
             <% @pitch.bookings.each do |booking|%>
               <%booking.reviews.each do |review| %>
-              <tr>
-                <td><%= review.rating %> <i class="fa-regular fa-star"></i></td>
-                <td><%= review.comment %> </td>
-                <td><% if current_user == review.booking.user %>
+                <tr>
+                  <td><%= review.rating %> <i class="fa-regular fa-star"></i></td>
+                  <td><%= review.comment %> </td>
+                  <td><% if current_user == review.booking.user %>
                     <%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %>
-                    <% end %></td>
-              </tr>
+                    <% end %>
+                  </td>
+                </tr>
               <% end %>
             <% end %>
           </tbody>
