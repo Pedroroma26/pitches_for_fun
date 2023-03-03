@@ -1,60 +1,59 @@
 <div class="container">
-  <div class="pitch-info">
+
+  <div class="pitch-info my-3">
     <span class="pitch-name"><%= @pitch.name %></span>
     <div>
+      <b><span class="text-decoration-underline"><%= @pitch.location%></span></b>
+      <p class="mt-3 fs-5" ><span class="badge rounded-pill text-bg-success"><%= @pitch.pitch_type %></span>
       <% if @pitch.average_rating.nan? %>
-                    <%= 'Not Rated' %>
-                  <% else %>
-                    <%= @pitch.average_rating %>
-                  <% end %> <i class="fa-regular fa-star"></i>
-      <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline"><%= @pitch.location%></span></b>
+        <%= 'Not Rated' %>
+        <% else %>
+          | <%= @pitch.average_rating %>
+        <% end %>
+      <i class="fa-regular fa-star"></i>
+      |<%= @pitch.review_count %> Comments</p>
     </div>
   </div>
 
   <div class="main">
     <div class="section">
-      <div class="sub-section pitch-pic">
-        <%= cl_image_tag @pitch.photo.key, height: 500, width: 866, crop: :fill, class: "rounded-4" %>
+
+<%# -------------------------------------pitch pic section --------------------------------------------%>
+
+      <div class="sub-section">
+        <%= cl_image_tag @pitch.photo.key, height: 500, width: 866, crop: :fill, class: "rounded-4 shadow-lg" %>
       </div>
 
-      <div class="sub-section">Booking
-        <div style="width: 100%; height: 600px;"
+<%# ---------------------------------------map section -------------------------------------- %>
+      <div class="sub-section ">
+        <div class= "rounded-4 shadow-lg" style="width: 100%; height: 500px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+
+        <div class="border p-4 rounded-4 shadow-lg my-5">
+          <p>Booking</p>
+          </p><%= render "bookings/new", pitch: @pitch, booking: @booking %>
+        </div>
       </div>
 
+<%# ------------------------- review section ------------------------------- %>
       <div class="sub-section">
-        <table class="table col-6">
-          <thead>
-            <tr class="table_headers" id ="test1">
-              <th scope="Ratings" id="rating">Ratings</th>
-              <th scope="Reviews col-5">Reviews</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @pitch.bookings.each do |booking|%>
-              <%booking.reviews.each do |review| %>
-                <tr>
-                  <td><%= review.rating %> <i class="fa-regular fa-star"></i></td>
-                  <td><%= review.comment %> </td>
-                  <td><% if current_user == review.booking.user %>
-                    <%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
+        <% @pitch.bookings.each do |booking| %>
+          <% booking.reviews.each do |review| %>
+            <div class="card rounded-4 mt-3">
+              <div class="card-body rounded-4 shadow-lg">
+                <span class="badge rounded-pill text-bg-success"><%= review.rating %> <i class="fa-regular fa-star"></i></span>
+                <p><%= review.comment %></p>
+                  <% if current_user == review.booking.user %>
+                    <p><%= button_to "", review_path(review), method: :delete, class: "fa-solid fa-trash" %></p>
+                  <% end %>
             <% end %>
-          </tbody>
-        </table>
+          <% end %>
+          </div>
+        </div>
       </div>
 
-      <div class="sub-section">
-        <p><b><%= @pitch.pitch_type %></b></p>
-        <%= render "bookings/new", pitch: @pitch, booking: @booking %>
-      </div>
-
-    </div>
-  </div>
+<%# ---------------------------------booking form ------------------------------- %>
 </div>
