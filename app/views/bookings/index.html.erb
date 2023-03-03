@@ -21,9 +21,9 @@
         <td><%= booking.start_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= booking.end_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= sprintf('%.2f', booking.total_price) %>€</td>
-        <td><%= link_to "leave a review", new_booking_review_path(booking), class:"text-decoration-none btn btn-outline-success btn-sm"%></td>
-        <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-outline-info btn-sm"%></td>
-        <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-outline-danger btn-sm",
+        <td><%= link_to "leave a review", new_booking_review_path(booking), class:"text-decoration-none btn btn-outline-success btn-sm rounded-4"%></td>
+        <td><%= link_to "edit", edit_booking_path(booking), class:"text-decoration-none btn btn-outline-info btn-sm rounded-4"%></td>
+        <td><%= link_to "Delete", booking_path(booking), class:"text-decoration-none btn btn-outline-danger btn-sm rounded-4",
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td>
       </tr>
 
