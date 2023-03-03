@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-link {
+  --bs-nav-link-hover-color: #082e4c;
+}
+
+.search-container form{
+  position:relative;
+  top:-85px;
+  left:80px;
+ }
