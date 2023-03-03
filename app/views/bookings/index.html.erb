@@ -1,3 +1,4 @@
+
 <div class="container col-10 justify-centered">
   <table class="table col-6">
 
@@ -17,7 +18,7 @@
       <% @bookings.each do |booking| %>
 
       <tr>
-        <td><%= link_to booking.pitch.name.titleize, pitch_path(booking.pitch), class:"text-decoration-none" %></td>
+        <td><%= link_to booking.pitch.name.titleize, pitch_path(booking.pitch), class:"text-decoration-none", style:"color:inherit; transition: background-color 0.3s ease; padding: 5px;" %>
         <td><%= booking.start_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= booking.end_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= sprintf('%.2f', booking.total_price) %>€</td>
