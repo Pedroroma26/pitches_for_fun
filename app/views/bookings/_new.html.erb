@@ -11,5 +11,5 @@
   <p><strong><%= @pitch.price %>€</strong> / day</p>
 
 <% if current_user == @pitch.user %>
-  <%= button_to "Delete Pitch", pitch_path(@pitch), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= button_to "Delete Pitch", pitch_path(@pitch), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger rounded-4" %>
 <% end %>
