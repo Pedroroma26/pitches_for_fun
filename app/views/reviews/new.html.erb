@@ -2,8 +2,9 @@
 <h1>Review the Pitch</h1>
 <%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :rating, collection: (0..5)  %>
-  <%= f.input :comment %>
-  <%= f.submit "Submit Review", class: "btn btn-success rounded-4 mt-3 col-12" %>
+  <%= f.input :comment,
+              hint: "minimum 3 characteres" %>
+  <%= f.submit "Submit Review", class: "btn btn-primary mb-3" %>
 <% end %>
 
   <%= link_to "Go back to your bookings", bookings_path(@booking), class: "btn btn-gray rounded-4 mt-3 col-12" %>
