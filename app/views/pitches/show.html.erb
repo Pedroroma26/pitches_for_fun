@@ -2,7 +2,11 @@
   <div class="pitch-info">
     <span class="pitch-name"><%= @pitch.name %></span>
     <div>
-      <%= @pitch.average_rating %> <i class="fa-regular fa-star"></i>
+      <% if @pitch.average_rating.nan? %>
+                    <%= 'Not Rated' %>
+                  <% else %>
+                    <%= @pitch.average_rating %>
+                  <% end %> <i class="fa-regular fa-star"></i>
       <%= @pitch.review_count %> Comments <b><span class="text-decoration-underline"><%= @pitch.location%></span></b>
     </div>
   </div>
