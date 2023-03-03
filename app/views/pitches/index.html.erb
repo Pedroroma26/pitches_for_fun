@@ -23,7 +23,13 @@
               <p class="card-text"><strong><%= pitch.price %>€</strong> / day</p>
             </div>
             <div class="rating">
-                <p class="card-text"><%= pitch.average_rating %><i class="fa-regular fa-star"></i></p>
+                <p class="card-text">
+                  <% if pitch.average_rating.nan? %>
+                    <%= 'Not Rated' %>
+                  <% else %>
+                    <%= pitch.average_rating %>
+                  <% end %><i class="fa-regular fa-star"></i>
+                </p>
             </div>
           </div>
         </div>
