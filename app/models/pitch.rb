@@ -17,7 +17,7 @@ class Pitch < ApplicationRecord
   pg_search_scope :search_by_name_and_type,
     against: [ :name, :pitch_type ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 
   def average_rating
