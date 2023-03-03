@@ -11,10 +11,11 @@ class PitchesController < ApplicationController
 
   def show
     @booking = Booking.new
-    @markers = {
+    @markers = [{
         lat: @pitch.latitude,
-        lng: @pitch.longitude
-      }
+        lng: @pitch.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {pitch: @pitch})
+      }]
   end
 
   def edit
