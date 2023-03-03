@@ -10,10 +10,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     @booking.user = current_user
-    if @review.save
-      redirect_to bookings_path
+
+    if @review.valid? && @review.save
+      redirect_to bookings_path, notice: "Review created successfully"
     else
-      render "review/new", status: :unprocessable_entity
+      flash.now[:alert] = "Please check the review form"
+      render "reviews/new", status: :unprocessable_entity
     end
   end
 
