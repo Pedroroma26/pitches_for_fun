@@ -4,8 +4,8 @@
   <%= f.input :rating, collection: (0..5)  %>
   <%= f.input :comment,
               hint: "minimum 3 characteres" %>
-  <%= f.submit "Submit Review", class: "btn btn-primary mb-3" %>
+  <span class="d-display justify-content-centered"><%= f.submit "Submit Review", class:"btn btn-success rounded-4 col-12 mx-1" %></span>
 <% end %>
 
-  <%= link_to "Go back to your bookings", bookings_path(@booking), class: "btn btn-gray rounded-4 mt-3 col-12" %>
+  <%= link_to "Go back to your bookings", bookings_path(@booking), class: "btn btn-gray rounded-4 mb-3 col-12" %>
 </div>
