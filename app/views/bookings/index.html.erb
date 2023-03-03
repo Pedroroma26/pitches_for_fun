@@ -17,7 +17,7 @@
       <% @bookings.each do |booking| %>
 
       <tr>
-        <td><%= booking.pitch.name %></td>
+        <td><%= link_to booking.pitch.name.titleize, pitch_path(booking.pitch), class:"text-decoration-none" %></td>
         <td><%= booking.start_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= booking.end_time.strftime('%d-%m-%Y %H:%M') %></td>
         <td><%= sprintf('%.2f', booking.total_price) %>€</td>
