@@ -5,7 +5,7 @@
       class: "form-control  border-radio",
       placeholder: "Find a Pitch"
     %>
-    <%= submit_tag "Search", class: "btn btn-outline-primary ms-3 border-radio" %>
+    <%= submit_tag "Search", class: "btn btn-outline-success ms-3 border-radio" %>
   <% end %>
 </div>
 
@@ -18,7 +18,7 @@
           <div class="card-body">
             <h3 class="card-text"><%= pitch.name.capitalize %></h3>
             <p class="card-text address"><%= pitch.location %></p>
-            <p class="card-text"><small class="text-muted"><%= pitch.pitch_type %></small></p>
+            <p class="badge rounded-pill text-bg-success"><%= pitch.pitch_type %></small></p>
             <div class="price">
               <p class="card-text"><strong><%= pitch.price %>€</strong> / day</p>
             </div>
