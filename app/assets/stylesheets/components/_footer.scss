@@ -59,5 +59,10 @@
   margin-bottom:0;
 }
 
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
 
 /* Credit to https://epicbootstrap.com/snippets/footer-basic */
